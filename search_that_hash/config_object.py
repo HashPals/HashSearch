@@ -59,7 +59,7 @@ def default_config():
     appname = "Search-That-Hash"
     appauthor = "HashPals"
 
-    config_json = user_data_dir(appname, appauthor) + "\\config.json"
+    config_json = os.path.join(user_data_dir(appname, appauthor), "config.json")
 
     if not os.path.isfile(config_json):
         os.makedirs(user_data_dir(appname, appauthor))
