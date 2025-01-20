@@ -29,6 +29,7 @@ class Searcher:
             online.md5_addr(),
             online.md5_grom(),
             online.sha1_grom(),
+            online.Weakpass()
         ]
 
     def main(self, chash, types) -> dict:

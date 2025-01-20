@@ -312,3 +312,13 @@ class hashdecryption:
             return "".join(out.split("</b> is <b>")[1]).split("</b><br>")[0]
         except Exception:
             return "Failed"
+        
+class Weakpass:
+    supports = set(["md5", "ntlm", "sha1", "sha-256"])
+    def crack(self, config):
+        try:
+            headers = {"accept: application/json"}
+            out = requests.get(f"https://weakpass.com/api/v1/search/{config['chash']}.json", headers=headers)
+            return out.json().get("pass")
+        except Exception:
+            return "Failed"
